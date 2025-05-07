@@ -1,11 +1,11 @@
-=== Plugin Name ===
+=== Illdy Companion ===
 Contributors: colorlibplugins, silkalns
-Tags: woocommerce, widgets, plugin, demo, companion, home page, one page, parallax, social, portfolio, projects
-Requires at least: 3.8
-Tested up to: 5.8
-Stable tag: 2.1.3
+Tags: demo, one page, parallax, social, portfolio
+Requires at least: 5.8
+Tested up to: 6.8
+Stable tag: 2.1.4
 License: GPLv3 or later
-License URI: http://www.gnu.org/licenses/gpl-3.0.html
+License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
 Illdy Companion is a companion plugin for Illdy WordPress theme by Colorlib.com.
 == Description ==
@@ -56,6 +56,18 @@ Currently it works only with Illdy theme.
 You can still use Illdy theme without this plugin but you won't be able to import demo content and use theme specific widgets that you see on front page of theme demo.
 
 == Changelog ==
+
+= 2.1.4 =
+* Fixed critical bug in demo content import functionality 
+* Fixed PHP syntax error in dynamic method calls
+* Fixed undefined variable issue in the import_customizer method
+* Fixed AJAX callback handler to properly process import requests
+* Fixed multiple PHP warnings throughout the plugin
+* Improved UI for recommended plugins section
+* Fixed layout issues with plugin boxes and buttons
+* Fixed plugin author links display
+* Improved spacing and alignment in the admin dashboard
+* Removed kb-support from recommended plugins list
 
 = 2.1.3 =
 * Compatibility with jQuery 3.0
