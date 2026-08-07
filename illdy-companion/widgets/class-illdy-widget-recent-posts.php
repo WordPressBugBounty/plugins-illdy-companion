@@ -1,4 +1,8 @@
 <?php
+if ( ! defined( 'WPINC' ) ) {
+	die;
+}
+
 
 class Illdy_Widget_Recent_Posts extends WP_Widget {
 
@@ -22,7 +26,7 @@ class Illdy_Widget_Recent_Posts extends WP_Widget {
 	 * @param array $instance Saved values from database.
 	 */
 	public function widget( $args, $instance ) {
-		echo $args['before_widget'];
+		echo $args['before_widget']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- $args comes from register_sidebar() in the theme, not from user input.
 
 		$defaults = array(
 			'title'         => '',
@@ -32,7 +36,7 @@ class Illdy_Widget_Recent_Posts extends WP_Widget {
 		$instance = wp_parse_args( $instance, $defaults );
 
 		if ( $instance['display_title'] ) {
-			echo $args['before_title'] . esc_html( $instance['title'] ) . $args['after_title'];
+			echo $args['before_title'] . esc_html( $instance['title'] ) . $args['after_title']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Title is escaped inline; the wrappers come from register_sidebar().
 		}
 
 		$post_query_args = array(
@@ -58,19 +62,19 @@ class Illdy_Widget_Recent_Posts extends WP_Widget {
 						$output .= ( has_post_thumbnail( $post->ID ) ? get_the_post_thumbnail( $post->ID, 'illdy-widget-recent-posts' ) : '' );
 					$output     .= ( has_post_thumbnail( $post->ID ) ? '</div><!--/.recent-post-image-->' : '' );
 					$output     .= '<a href="' . esc_url( get_the_permalink() ) . '" title="' . esc_attr( get_the_title() ) . '" class="recent-post-title">' . esc_html( get_the_title() ) . '</a>';
-					$output     .= '<a href="' . esc_url( get_the_permalink() ) . '" title="' . __( 'More...', 'illdy-companion' ) . '" class="recent-post-button">' . __( 'More...', 'illdy-companion' ) . '</a>';
+					$output     .= '<a href="' . esc_url( get_the_permalink() ) . '" title="' . esc_attr__( 'More...', 'illdy-companion' ) . '" class="recent-post-button">' . esc_html__( 'More...', 'illdy-companion' ) . '</a>';
 				$output         .= '</div><!--/.widget-recent-post.clearfix-->';
 
-				echo $output;
+				echo $output; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- $output is assembled from esc_url(), esc_attr() and esc_html() above.
 
 			}
 		} else {
-			echo __( 'No posts found.', 'illdy-companion' );
+			echo esc_html__( 'No posts found.', 'illdy-companion' );
 		}
 
 		wp_reset_postdata();
 
-		echo $args['after_widget'];
+		echo $args['after_widget']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- $args comes from register_sidebar() in the theme, not from user input.
 	}
 
 	/**
@@ -92,21 +96,21 @@ class Illdy_Widget_Recent_Posts extends WP_Widget {
 		?>
 
 		<div class="checkbox_switch" style="margin-top:15px;margin-bottom: 0;">
-			<span class="customize-control-title onoffswitch_label"><?php _e( 'Display title?', 'illdy-companion' ); ?></span>
+			<span class="customize-control-title onoffswitch_label"><?php esc_html_e( 'Display title?', 'illdy-companion' ); ?></span>
 			<div class="onoffswitch">
-				<input type="checkbox" id="<?php echo $this->get_field_id( 'display_title' ); ?>" name="<?php echo $this->get_field_name( 'display_title' ); ?>" class="onoffswitch-checkbox" value="1" <?php checked( $instance['display_title'] ); ?>>
-				<label class="onoffswitch-label" for="<?php echo $this->get_field_id( 'display_title' ); ?>"></label>
+				<input type="checkbox" id="<?php echo esc_attr( $this->get_field_id( 'display_title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'display_title' ) ); ?>" class="onoffswitch-checkbox" value="1" <?php checked( $instance['display_title'] ); ?>>
+				<label class="onoffswitch-label" for="<?php echo esc_attr( $this->get_field_id( 'display_title' ) ); ?>"></label>
 			</div>
 		</div>
 
 		<p>
-			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'illdy-companion' ); ?></label>
-			<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $instance['title'] ); ?>">
+			<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title:', 'illdy-companion' ); ?></label>
+			<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $instance['title'] ); ?>">
 		</p>
 
 		<p>
-			<label for="<?php echo $this->get_field_id( 'numberofposts' ); ?>"><?php _e( 'Number of posts:', 'illdy-companion' ); ?></label>
-			<input class="widefat" id="<?php echo $this->get_field_id( 'numberofposts' ); ?>" name="<?php echo $this->get_field_name( 'numberofposts' ); ?>" type="number" value="<?php echo esc_attr( $instance['numberofposts'] ); ?>">
+			<label for="<?php echo esc_attr( $this->get_field_id( 'numberofposts' ) ); ?>"><?php esc_html_e( 'Number of posts:', 'illdy-companion' ); ?></label>
+			<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'numberofposts' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'numberofposts' ) ); ?>" type="number" value="<?php echo esc_attr( $instance['numberofposts'] ); ?>">
 		</p>
 		<?php
 	}
@@ -122,8 +126,10 @@ class Illdy_Widget_Recent_Posts extends WP_Widget {
 	 * @return array Updated safe values to be saved.
 	 */
 	public function update( $new_instance, $old_instance ) {
-		$instance                  = array();
-		$instance['display_title'] = $new_instance['display_title'];
+		$instance = array();
+		// An unchecked checkbox is not submitted at all, so reading the key directly
+		// raised "Undefined array key" on every save with the toggle off.
+		$instance['display_title'] = empty( $new_instance['display_title'] ) ? '' : '1';
 		$instance['title']         = ( ! empty( $new_instance['title'] ) ) ? wp_kses_post( $new_instance['title'] ) : '';
 		$instance['numberofposts'] = ( ! empty( $new_instance['numberofposts'] ) ? absint( $new_instance['numberofposts'] ) : '' );
 

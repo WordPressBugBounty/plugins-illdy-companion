@@ -32,7 +32,6 @@
     z-index: 2;
     top: -10px;
     cursor: default;
-    -ms-touch-action: none;
     touch-action: none;
     width: 18px;
     height: 18px;
@@ -100,7 +99,6 @@
     z-index: 2;
     top: -10px;
     cursor: default;
-    -ms-touch-action: none;
     touch-action: none;
     width: 18px;
     height: 18px;
@@ -191,8 +189,7 @@ ul.macho-upsell-requirements {
     display: inline-block;
     float: right;
     -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
+    user-select: none;
 }
 
 .onoffswitch-checkbox {

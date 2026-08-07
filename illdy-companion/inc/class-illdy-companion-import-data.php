@@ -1,62 +1,21 @@
 <?php
+if ( ! defined( 'WPINC' ) ) {
+	die;
+}
+
 
 class Illdy_Companion_Import_Data {
 
-	function __construct() {
-
-		/**
-		 * Alter theme recommended actions
-		 */
-		add_filter( 'illdy_required_actions', array( $this, 'generate_import_data_container' ) );
-
-	}
-
-	public function generate_import_data_container( $actions ) {
-		$import_actions = array(
-			'set_static_frontpage' => esc_html__( 'Set front page to static page', 'illdy-companion' ),
-			'import_customizer'    => esc_html__( 'Import Customizer Setting', 'illdy-companion' ),
-			'import_widgets'       => esc_html__( 'Import Widgets', 'illdy-companion' ),
-		);
-		if ( is_customize_preview() ) {
-			$url  = 'themes.php?page=%1$s-welcome&tab=%2$s';
-			$html = '<a class="button button-primary" id="" href="' . esc_url( admin_url( sprintf( $url, 'illdy', 'recommended-actions' ) ) ) . '">' . __( 'Import Demo Content', 'illdy-companion' ) . '</a>';
-		} else {
-			$html  = '<p><a class="button button-primary epsilon-ajax-button" id="add_default_sections" href="#">' . __( 'Import Demo Content', 'illdy-companion' ) . '</a>';
-			$html .= '<a class="button epsilon-hidden-content-toggler" href="#welcome-hidden-content">' . __( 'Advanced', 'illdy-companion' ) . '</a></p>';
-			$html .= '<div class="import-content-container" id="welcome-hidden-content">';
-			$html .= '<div class="demo-content-container">';
-			$html .= '<div class="checkbox-group">';
-			foreach ( $import_actions as $id => $label ) {
-				$html .= $this->generate_checkbox( $id, $label );
-			}
-			$html .= '</div>';
-			$html .= '</div>';
-			$html .= '</div>';
-		}
-
-		$actions[] = array(
-			'id'          => 'illdy-req-ac-import-demo-content',
-			'title'       => esc_html__( 'Import Demo Content', 'illdy-companion' ),
-			'description' => esc_html__( 'Clicking the button below will add content, widgets and set static front page to your WordPress installation. Click advanced to customize the import process.', 'illdy-companion' ),
-			'help'        => $html,
-			'check'       => $this->check_content_import(),
-		);
-
-		return $actions;
-	}
-
-	/**
-	 * Generate HTML for a checkbox
+	/*
+	 * This class used to hook `illdy_required_actions` and hand the theme a blob of HTML
+	 * — the Import button, an "Advanced" toggle and three checkboxes — to render inside
+	 * its Recommended Actions list. Illdy 2.3.0 removed that list, and the plugin now
+	 * renders the same three options on its own page (Illdy_Companion_Importer_Page),
+	 * so the filter and its markup builders are gone.
 	 *
-	 * @param $id
-	 * @param $label
-	 *
-	 * @return string
+	 * The import steps below are untouched: what they write to the database is exactly
+	 * what the old flow wrote.
 	 */
-	private function generate_checkbox( $id, $label ) {
-		$string = '<label><input checked type="checkbox" class="demo-checkboxes" value="%1$s">%2$s</label>';
-		return sprintf( $string, $id, $label );
-	}
 
 	public function check_content_import() {
 		$illdy_content = get_option( 'illdy_show_required_actions' );
@@ -67,12 +26,33 @@ class Illdy_Companion_Import_Data {
 		return false;
 	}
 
+	/**
+	 * The import steps that may be requested over AJAX.
+	 *
+	 * @return string[]
+	 */
+	public static function get_import_steps() {
+		return array( 'set_static_frontpage', 'import_customizer', 'import_widgets' );
+	}
+
 	public static function process_sample_content( $args = array() ) {
 
 		$imported = true;
 
 		if ( is_array( $args ) ) {
+			$allowed = self::get_import_steps();
+
 			foreach ( $args as $arg ) {
+				/*
+				 * $arg arrives from the request body and used to be interpolated straight
+				 * into a static call, so any public static method on this class could be
+				 * invoked and an unknown name was a fatal "call to undefined method".
+				 */
+				if ( ! is_string( $arg ) || ! in_array( $arg, $allowed, true ) ) {
+					$imported = false;
+					continue;
+				}
+
 				$response = self::{$arg}();
 				if ( $imported && is_array( $response ) ) {
 					$imported = false;
@@ -80,7 +60,12 @@ class Illdy_Companion_Import_Data {
 			}
 		}
 		if ( $imported ) {
-			$illdy_show_required_actions                             = get_option( 'illdy_show_required_actions' );
+			// get_option() yields false when the option has never been written, and
+			// writing an index on false is deprecated in PHP 8.1.
+			$illdy_show_required_actions = get_option( 'illdy_show_required_actions' );
+			if ( ! is_array( $illdy_show_required_actions ) ) {
+				$illdy_show_required_actions = array();
+			}
 			$illdy_show_required_actions['illdy-req-import-content'] = true;
 			update_option( 'illdy_show_required_actions', $illdy_show_required_actions );
 			return 'ok';
@@ -91,29 +76,59 @@ class Illdy_Companion_Import_Data {
 	}
 
 	public static function set_static_frontpage() {
-		$frontpage_title = __( 'Front Page', 'illdy-companion' );
-		$blog_title      = __( 'Blog', 'illdy-companion' );
+		$frontpage_id = self::get_or_create_page( __( 'Front Page', 'illdy-companion' ) );
+		$blog_id      = self::get_or_create_page( __( 'Blog', 'illdy-companion' ) );
 
-		$frontpage_id = wp_insert_post(
-			array(
-				'post_title'  => $frontpage_title,
-				'post_status' => 'publish',
-				'post_type'   => 'page',
-			)
-		);
-		$blog_id      = wp_insert_post(
-			array(
-				'post_title'  => $blog_title,
-				'post_status' => 'publish',
-				'post_type'   => 'page',
-			)
-		);
+		// wp_insert_post() can return a WP_Error or 0; storing either would leave the
+		// site pointing at a page that does not exist.
+		if ( ! $frontpage_id || ! $blog_id ) {
+			return array( 'status' => false );
+		}
 
 		update_option( 'show_on_front', 'page' );
 		update_option( 'page_on_front', $frontpage_id );
 		update_option( 'page_for_posts', $blog_id );
 
 		return 'ok';
+	}
+
+	/**
+	 * Returns the id of a published page with this title, creating it if absent.
+	 *
+	 * Re-running the importer used to add another "Front Page" and "Blog" every time.
+	 *
+	 * @param string $title Page title.
+	 *
+	 * @return int Page id, or 0 on failure.
+	 */
+	private static function get_or_create_page( $title ) {
+		// get_page_by_title() is deprecated as of WordPress 6.2.
+		$existing = new WP_Query(
+			array(
+				'post_type'              => 'page',
+				'post_status'            => array( 'publish', 'draft' ),
+				'title'                  => $title,
+				'posts_per_page'         => 1,
+				'no_found_rows'          => true,
+				'update_post_meta_cache' => false,
+				'update_post_term_cache' => false,
+				'fields'                 => 'ids',
+			)
+		);
+
+		if ( ! empty( $existing->posts ) ) {
+			return (int) $existing->posts[0];
+		}
+
+		$page_id = wp_insert_post(
+			array(
+				'post_title'  => $title,
+				'post_status' => 'publish',
+				'post_type'   => 'page',
+			)
+		);
+
+		return is_wp_error( $page_id ) ? 0 : (int) $page_id;
 	}
 
 	public static function import_customizer() {
@@ -209,11 +224,54 @@ class Illdy_Companion_Import_Data {
 
 	}
 
+	/**
+	 * Repoints remote demo image URLs at the copies bundled with the theme.
+	 *
+	 * Only rewrites a URL when a file of the same name exists locally, so genuinely
+	 * remote assets are left alone. Operates on the raw JSON, which escapes its
+	 * slashes, hence the tolerant separator match.
+	 *
+	 * @param string $json Raw widget configuration.
+	 *
+	 * @return string
+	 */
+	private static function localise_demo_images( $json ) {
+		$dir = trailingslashit( get_template_directory() ) . 'layout/images/front-page/';
+		$uri = trailingslashit( get_template_directory_uri() ) . 'layout/images/front-page/';
+
+		return preg_replace_callback(
+			'#https?:(?:\\\\?/)+colorlibhub\.com[^"]*?\.(?:jpe?g|png|gif)#i',
+			function ( $matches ) use ( $dir, $uri ) {
+				$path = str_replace( '\\/', '/', $matches[0] );
+				$file = basename( (string) wp_parse_url( $path, PHP_URL_PATH ) );
+
+				return ( $file && file_exists( $dir . $file ) ) ? $uri . $file : $matches[0];
+			},
+			$json
+		);
+	}
+
 	public static function import_widgets() {
 
 		$json             = '{"footer-sidebar-1":{"text-5":{"title":"PRODUCTS","text":"<ul><li><a href=\"#\" title=\"Our work\">Our work<\/a><\/li><li><a href=\"#\" title=\"Club\">Club<\/a><\/li><li><a href=\"#\" title=\"News\">News<\/a><\/li><li><a href=\"#\" title=\"Announcement\">Announcement<\/a><\/li><\/ul>","filter":false}},"footer-sidebar-2":{"text-6":{"title":"INFORMATION","text":"<ul><li><a href=\"#\" title=\"Pricing\">Pricing<\/a><\/li><li><a href=\"#\" title=\"Terms\">Terms<\/a><\/li><li><a href=\"#\" title=\"Affiliates\">Affiliates<\/a><\/li><li><a href=\"#\" title=\"Blog\">Blog<\/a><\/li><\/ul>","filter":false}},"footer-sidebar-3":{"text-7":{"title":"SUPPORT","text":"<ul><li><a href=\"#\" title=\"Documentation\">Documentation<\/a><\/li><li><a href=\"#\" title=\"FAQs\">FAQs<\/a><\/li><li><a href=\"#\" title=\"Forums\">Forums<\/a><\/li><li><a href=\"#\" title=\"Contact\">Contact<\/a><\/li><\/ul>","filter":false}},"front-page-about-sidebar":{"illdy_skill-2":{"title":"Typography","percentage":60,"icon":"fa fa-font","color":"#f18b6d"},"illdy_skill-3":{"title":"Design","percentage":82,"icon":"fa fa-pencil","color":"#f1d204"},"illdy_skill-4":{"title":"Development","percentage":86,"icon":"fa fa-code","color":"#6a4d8a"}},"front-page-projects-sidebar":{"illdy_project-3":{"title":"Project 1","image":"https:\/\/colorlibhub.com\/illdy\/wp-content\/uploads\/sites\/58\/2016\/03\/front-page-project-1.jpg","url":""},"illdy_project-4":{"title":"Project 2","image":"https:\/\/colorlibhub.com\/illdy\/wp-content\/uploads\/sites\/58\/2016\/03\/front-page-project-2.jpg","url":""},"illdy_project-5":{"title":"Project 3","image":"https:\/\/colorlibhub.com\/illdy\/wp-content\/uploads\/sites\/58\/2016\/03\/front-page-project-3.jpg","url":""},"illdy_project-6":{"title":"Project 4","image":"https:\/\/colorlibhub.com\/illdy\/wp-content\/uploads\/sites\/58\/2016\/03\/front-page-project-4.jpg","url":""}},"front-page-services-sidebar":{"illdy_service-2":{"title":"Web Design","icon":"fa fa-pencil","entry":"Consectetur adipiscing elit. Praesent molestie urna hendrerit erat tincidunt tempus. Aliquam a leo risus. Fusce a metus non augue dapibus porttitor at in mauris. Pellentesque commodo...","color":"#f18b6d"},"illdy_service-3":{"title":"WEB DEVELOPMENT","icon":"fa fa-code","entry":"Consectetur adipiscing elit. Praesent molestie urna hendrerit erat tincidunt tempus. Aliquam a leo risus. Fusce a metus non augue dapibus porttitor at in mauris. Pellentesque commodo...","color":"#f1d204"},"illdy_service-4":{"title":"SEO Analisys","icon":"fa fa-search","entry":"Consectetur adipiscing elit. Praesent molestie urna hendrerit erat tincidunt tempus. Aliquam a leo risus. Fusce a metus non augue dapibus porttitor at in mauris. Pellentesque commodo...","color":"#6a4d8a"}},"front-page-counter-sidebar":{"illdy_counter-4":{"title":"Projects","data_from":1,"data_to":260,"data_speed":2000,"data_refresh_interval":100},"illdy_counter-3":{"title":"Clients","data_from":1,"data_to":120,"data_speed":2000,"data_refresh_interval":100},"illdy_counter-2":{"title":"Coffes","data_from":1,"data_to":260,"data_speed":2000,"data_refresh_interval":100}},"front-page-team-sidebar":{"illdy_person-5":{"title":"Mark Lawrance","image":"https://colorlibhub.com/illdy/wp-content/themes/illdy\/layout\/images\/front-page\/front-page-team-1.jpg","position":"Web Designer","entry":"Creative, detail-oriented, always focused.","facebook_url":"#","twitter_url":"#","linkedin_url":"#","color":"#f18b6d"},"illdy_person-4":{"title":"Jane Stenton","image":"https:\/\/colorlibhub.com\/illdy\/wp-content\/themes\/illdy\/layout\/images\/front-page\/front-page-team-2.jpg","position":"SEO Specialist","entry":"Curious, tech-geeck and gets serious when it comes to work.","facebook_url":"#","twitter_url":"#","linkedin_url":"#","color":"#f1d204"},"illdy_person-2":{"title":"John Smith","image":"https://colorlibhub.com/illdy/wp-content/themes/illdy\/layout\/images\/front-page\/front-page-team-3.jpg","position":"Developer","entry":"Enthusiastic, passionate with great sense of humor.","facebook_url":"#","twitter_url":"#","linkedin_url":"#","color":"#6a4d8a"}},"front-page-testimonials-sidebar":{"illdy_testimonial-1":{"name":"Jane Smith","image":"https://colorlibhub.com/illdy/wp-content/themes/illdy\/layout\/images\/front-page\/front-page-testimonial-1.jpg","testimonial":"                    Awesome theme with great design and helpfull support. If you don\u2019t know how to code your own WordPress theme, but you still want a good-looking website for your business, Illdy might be exactly what you need. It is a slick theme with a lot of of features to choose from. You can customize whatever section you want and you can rest assure that no matter what device your website is viewed on \u2013 it looks great.            "},"illdy_testimonial-2":{"name":"Jane Smith","image":"https:\/\/colorlibhub.com\/illdy\/wp-content\/uploads\/sites\/58/2016\/02\/mike-muller-127x127.jpg","testimonial":"                    Awesome theme with great design and helpfull support. If you don\u2019t know how to code your own WordPress theme, but you still want a good-looking website for your business, Illdy might be exactly what you need. It is a slick theme with a lot of of features to choose from. You can customize whatever section you want and you can rest assure that no matter what device your website is viewed on \u2013 it looks great.            "}}}';
+		/*
+		 * The shipped demo data points its images at colorlibhub.com. Most of those
+		 * files also ship inside the theme, so rewrite them to the local copies: demo
+		 * content then renders without a third-party request, keeps working if that
+		 * host changes, and does not disclose visitors to another server.
+		 */
+		$json = self::localise_demo_images( $json );
+
 		$config           = json_decode( $json );
 		$sidebars_widgets = get_option( 'sidebars_widgets' );
+
+		if ( ! is_array( $sidebars_widgets ) ) {
+			$sidebars_widgets = array();
+		}
+
+		if ( ! is_object( $config ) && ! is_array( $config ) ) {
+			return 'nok';
+		}
 		# Parse config
 		foreach ( $config as $sidebar => $elemements ) {
 			# verify if the sidebar doesn't have ny widgets
@@ -234,6 +292,11 @@ class Illdy_Companion_Import_Data {
 					$widget_name = implode( '-', $id_widget_parts );
 					#get all widgets who are like current widget
 					$widgets = get_option( 'widget_' . $widget_name );
+					// Same as above: an unwritten option is false, and indexing into
+					// false to assign is deprecated in PHP 8.1.
+					if ( ! is_array( $widgets ) ) {
+						$widgets = array();
+					}
 					#check if current index exist in array
 					if ( ! isset( $widgets[ $index_widget ] ) ) {
 						#add current widget with his index and args

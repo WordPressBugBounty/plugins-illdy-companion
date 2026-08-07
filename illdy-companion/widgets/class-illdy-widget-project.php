@@ -1,4 +1,8 @@
 <?php
+if ( ! defined( 'WPINC' ) ) {
+	die;
+}
+
 
 class Illdy_Widget_Project extends WP_Widget {
 
@@ -18,9 +22,15 @@ class Illdy_Widget_Project extends WP_Widget {
 	/**
 	 *  Enqueue Scripts
 	 */
-	public function enqueue_scripts() {
+	public function enqueue_scripts( $hook_suffix = '' ) {
+		// wp_enqueue_media() pulls in the entire media library. This ran on every
+		// admin screen; widget forms only appear on these two.
+		if ( 'widgets.php' !== $hook_suffix && 'customize.php' !== $hook_suffix ) {
+			return;
+		}
+
 		wp_enqueue_media();
-		wp_enqueue_script( 'illdy-widget-upload-image', ILLDY_COMPANION_ASSETS_DIR . 'js/widget-upload-image.js', false, '1.0', true );
+		wp_enqueue_script( 'illdy-widget-upload-image', ILLDY_COMPANION_ASSETS_DIR . 'js/widget-upload-image.js', array( 'jquery' ), ILLDY_COMPANION, true );
 	}
 
 	/**
@@ -32,7 +42,7 @@ class Illdy_Widget_Project extends WP_Widget {
 	 * @param array $instance Saved values from database.
 	 */
 	public function widget( $args, $instance ) {
-		echo $args['before_widget'];
+		echo $args['before_widget']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- $args comes from register_sidebar() in the theme, not from user input.
 
 		$url       = '';
 		$video_url = '';
@@ -58,8 +68,9 @@ class Illdy_Widget_Project extends WP_Widget {
 
 		if ( $lightbox ) {
 			if ( $image_id && empty( $instance['video'] ) ) {
-				$url = wp_get_attachment_image_src( $image_id, 'full' );
-				$url = $url[0];
+				// Returns false when the attachment no longer exists.
+				$full = wp_get_attachment_image_src( $image_id, 'full' );
+				$url  = ! empty( $full[0] ) ? $full[0] : $instance['image'];
 			} elseif ( ! empty( $instance['video'] ) ) {
 				$url = $instance['video'];
 			} else {
@@ -69,11 +80,26 @@ class Illdy_Widget_Project extends WP_Widget {
 			$url = $instance['url'];
 		}
 
-		$output = '<a href="' . esc_url( $url ) . '" title="' . esc_attr( $instance['title'] ) . '" class="' . $class . '" data-fancybox="gallery" style="background-image: url(' . ( $image_id ? esc_url( $get_attachment_image_src[0] ) : esc_url( $instance['image'] ) ) . ');"><span class="project-overlay"></span></a>';
+		$background = ! empty( $get_attachment_image_src[0] ) ? $get_attachment_image_src[0] : $instance['image'];
 
-		echo $output;
+		/*
+		 * The link's only content was an empty overlay span and its only label a title
+		 * attribute, which screen readers do not reliably announce — so it read as an
+		 * unlabelled link. The image is a CSS background, so there is no alt text to
+		 * fall back on either. The visually hidden title fixes that, and as a side
+		 * effect gives the block widget editor something to preview: it treats markup
+		 * with no text and no <img> as an empty preview and shows "No preview
+		 * available" instead of the widget.
+		 */
+		$label = '' !== trim( (string) $instance['title'] )
+			? '<span class="screen-reader-text">' . esc_html( $instance['title'] ) . '</span>'
+			: '';
 
-		echo $args['after_widget'];
+		$output = '<a href="' . esc_url( $url ) . '" title="' . esc_attr( $instance['title'] ) . '" class="' . esc_attr( $class ) . '" data-fancybox="gallery" style="background-image: url(' . esc_url( $background ) . ');"><span class="project-overlay"></span>' . $label . '</a>';
+
+		echo $output; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- $output is assembled from esc_url(), esc_attr() and esc_html() above.
+
+		echo $args['after_widget']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- $args comes from register_sidebar() in the theme, not from user input.
 	}
 
 	/**
@@ -96,17 +122,17 @@ class Illdy_Widget_Project extends WP_Widget {
 		?>
 		<p>
 			<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php echo esc_html__( 'Title:', 'illdy-companion' ); ?></label>
-			<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $instance['title'] ); ?>">
+			<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $instance['title'] ); ?>">
 		</p>
 
 		<p>
 			<label for="<?php echo esc_attr( $this->get_field_name( 'image' ) ); ?>"><?php echo esc_html__( 'Image:', 'illdy-companion' ); ?></label>
-			<input type="text" class="widefat custom_media_url_<?php echo $this->get_field_id( 'image' ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'image' ) ); ?>" id="<?php echo esc_attr( $this->get_field_id( 'image' ) ); ?>" value="<?php echo esc_attr( $instance['image'] ); ?>" style="margin-top:5px;">
+			<input type="text" class="widefat custom_media_url_<?php echo esc_attr( $this->get_field_id( 'image' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'image' ) ); ?>" id="<?php echo esc_attr( $this->get_field_id( 'image' ) ); ?>" value="<?php echo esc_attr( $instance['image'] ); ?>" style="margin-top:5px;">
 			<input type="button" class="button button-primary custom_media_button" id="custom_media_button_service" data-fieldid="<?php echo esc_attr( $this->get_field_id( 'image' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'image' ) ); ?>" value="<?php echo esc_html__( 'Upload Image', 'illdy-companion' ); ?>" style="margin-top: 5px;">
 		</p>
 
 		<p>
-			<label for="<?php echo $this->get_field_name( 'video' ); ?>"><?php echo esc_html__( 'Video: (YouTube or Vimeo only)', 'illdy-companion' ); ?></label>
+			<label for="<?php echo esc_attr( $this->get_field_name( 'video' ) ); ?>"><?php echo esc_html__( 'Video: (YouTube or Vimeo only)', 'illdy-companion' ); ?></label>
 			<input type="text" class="widefat" name="<?php echo esc_attr( $this->get_field_name( 'video' ) ); ?>" id="<?php echo esc_attr( $this->get_field_id( 'video' ) ); ?>" value="<?php echo esc_attr( $instance['video'] ); ?>" style="margin-top:5px;">
 		</p>
 

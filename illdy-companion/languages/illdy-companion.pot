@@ -1,0 +1,928 @@
+# Copyright (C) 2026 Colorlib
+# This file is distributed under the GPL-2.0+.
+msgid ""
+msgstr ""
+"Project-Id-Version: Illdy Companion 2.3.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/illdy-companion\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-08-07T11:36:05+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: illdy-companion\n"
+
+#. Plugin Name of the plugin
+#: illdy-companion.php
+msgid "Illdy Companion"
+msgstr ""
+
+#. Plugin URI of the plugin
+#: illdy-companion.php
+msgid "https://colorlib.com/wp/themes/illdy/"
+msgstr ""
+
+#. Description of the plugin
+#: illdy-companion.php
+msgid "Illdy Companion is a companion for Illdy theme."
+msgstr ""
+
+#. Author of the plugin
+#: illdy-companion.php
+msgid "Colorlib"
+msgstr ""
+
+#. Author URI of the plugin
+#: illdy-companion.php
+msgid "https://colorlib.com/"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/illdy-companion.php:36
+#: dist/svn/trunk/illdy-companion.php:36
+#: illdy-companion.php:36
+msgid "From our blog"
+msgstr ""
+
+#. translators: 1: opening link tag to the Illdy theme on WordPress.org, 2: closing link tag.
+#: dist/svn/tags/2.2.0/illdy-companion.php:81
+#: dist/svn/trunk/illdy-companion.php:81
+#: illdy-companion.php:81
+#, php-format
+msgid "In order to use the <strong>Illdy Companion</strong> plugin you have to also install the %1$sIlldy Theme%2$s"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/illdy-main.php:98
+#: dist/svn/tags/2.2.0/inc/class-illdy-companion-import-data.php:142
+#: dist/svn/trunk/illdy-main.php:98
+#: dist/svn/trunk/inc/class-illdy-companion-import-data.php:142
+#: illdy-main.php:98
+#: inc/class-illdy-companion-import-data.php:142
+msgid "In order to help you grow your business, our carefully selected experts can advise you in in the following areas:"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/illdy-main.php:108
+#: dist/svn/tags/2.2.0/illdy-main.php:120
+#: dist/svn/tags/2.2.0/illdy-main.php:146
+#: dist/svn/tags/2.2.0/illdy-main.php:158
+#: dist/svn/tags/2.2.0/illdy-main.php:184
+#: dist/svn/tags/2.2.0/illdy-main.php:196
+#: dist/svn/tags/2.2.0/illdy-main.php:222
+#: dist/svn/tags/2.2.0/illdy-main.php:234
+#: dist/svn/tags/2.2.0/illdy-main.php:260
+#: dist/svn/tags/2.2.0/illdy-main.php:272
+#: dist/svn/tags/2.2.0/illdy-main.php:298
+#: dist/svn/tags/2.2.0/illdy-main.php:310
+#: dist/svn/tags/2.2.0/illdy-main.php:335
+#: dist/svn/tags/2.2.0/illdy-main.php:347
+#: dist/svn/trunk/illdy-main.php:108
+#: dist/svn/trunk/illdy-main.php:120
+#: dist/svn/trunk/illdy-main.php:146
+#: dist/svn/trunk/illdy-main.php:158
+#: dist/svn/trunk/illdy-main.php:184
+#: dist/svn/trunk/illdy-main.php:196
+#: dist/svn/trunk/illdy-main.php:222
+#: dist/svn/trunk/illdy-main.php:234
+#: dist/svn/trunk/illdy-main.php:260
+#: dist/svn/trunk/illdy-main.php:272
+#: dist/svn/trunk/illdy-main.php:298
+#: dist/svn/trunk/illdy-main.php:310
+#: dist/svn/trunk/illdy-main.php:335
+#: dist/svn/trunk/illdy-main.php:347
+#: illdy-main.php:108
+#: illdy-main.php:120
+#: illdy-main.php:146
+#: illdy-main.php:158
+#: illdy-main.php:184
+#: illdy-main.php:196
+#: illdy-main.php:222
+#: illdy-main.php:234
+#: illdy-main.php:260
+#: illdy-main.php:272
+#: illdy-main.php:298
+#: illdy-main.php:310
+#: illdy-main.php:335
+#: illdy-main.php:347
+msgid "Entry"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/illdy-main.php:121
+#: dist/svn/tags/2.2.0/illdy-main.php:159
+#: dist/svn/tags/2.2.0/illdy-main.php:197
+#: dist/svn/tags/2.2.0/illdy-main.php:273
+#: dist/svn/tags/2.2.0/illdy-main.php:311
+#: dist/svn/tags/2.2.0/illdy-main.php:348
+#: dist/svn/trunk/illdy-main.php:121
+#: dist/svn/trunk/illdy-main.php:159
+#: dist/svn/trunk/illdy-main.php:197
+#: dist/svn/trunk/illdy-main.php:273
+#: dist/svn/trunk/illdy-main.php:311
+#: dist/svn/trunk/illdy-main.php:348
+#: illdy-main.php:121
+#: illdy-main.php:159
+#: illdy-main.php:197
+#: illdy-main.php:273
+#: illdy-main.php:311
+#: illdy-main.php:348
+msgid "Add the content for this section."
+msgstr ""
+
+#: dist/svn/tags/2.2.0/illdy-main.php:136
+#: dist/svn/tags/2.2.0/inc/class-illdy-companion-import-data.php:166
+#: dist/svn/trunk/illdy-main.php:136
+#: dist/svn/trunk/inc/class-illdy-companion-import-data.php:166
+#: illdy-main.php:136
+#: inc/class-illdy-companion-import-data.php:166
+msgid "Meet the people that are going to take your business to the next level."
+msgstr ""
+
+#: dist/svn/tags/2.2.0/illdy-main.php:174
+#: dist/svn/tags/2.2.0/inc/class-illdy-companion-import-data.php:172
+#: dist/svn/trunk/illdy-main.php:174
+#: dist/svn/trunk/inc/class-illdy-companion-import-data.php:172
+#: illdy-main.php:174
+#: inc/class-illdy-companion-import-data.php:172
+msgid "It is an amazing one-page theme with great features that offers an incredible experience. It is easy to install, make changes, adapt for your business. A modern design with clean lines and styling for a wide variety of content, exactly how a business design should be. You can add as many images as you want to the main header area and turn them into slider."
+msgstr ""
+
+#: dist/svn/tags/2.2.0/illdy-main.php:212
+#: dist/svn/tags/2.2.0/inc/class-illdy-companion-import-data.php:186
+#: dist/svn/trunk/illdy-main.php:212
+#: dist/svn/trunk/inc/class-illdy-companion-import-data.php:186
+#: illdy-main.php:212
+#: inc/class-illdy-companion-import-data.php:186
+msgid "lldy is a great one-page theme, perfect for developers and designers but also for someone who just wants a new website for his business. Try it now!"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/illdy-main.php:235
+#: dist/svn/trunk/illdy-main.php:235
+#: illdy-main.php:235
+msgid "The content added in this field will show below title."
+msgstr ""
+
+#: dist/svn/tags/2.2.0/illdy-main.php:250
+#: dist/svn/tags/2.2.0/inc/class-illdy-companion-import-data.php:193
+#: dist/svn/trunk/illdy-main.php:250
+#: dist/svn/trunk/inc/class-illdy-companion-import-data.php:193
+#: illdy-main.php:250
+#: inc/class-illdy-companion-import-data.php:193
+msgid "If you are interested in the latest articles in the industry, take a sneak peek at our blog. You have nothing to loose!"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/illdy-main.php:288
+#: dist/svn/tags/2.2.0/inc/class-illdy-companion-import-data.php:198
+#: dist/svn/trunk/illdy-main.php:288
+#: dist/svn/trunk/inc/class-illdy-companion-import-data.php:198
+#: illdy-main.php:288
+#: inc/class-illdy-companion-import-data.php:198
+msgid "You'll love our work. Check it out!"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/illdy-main.php:325
+#: dist/svn/tags/2.2.0/inc/class-illdy-companion-import-data.php:175
+#: dist/svn/trunk/illdy-main.php:325
+#: dist/svn/trunk/inc/class-illdy-companion-import-data.php:175
+#: illdy-main.php:325
+#: inc/class-illdy-companion-import-data.php:175
+msgid "And we will get in touch as soon as possible."
+msgstr ""
+
+#: dist/svn/tags/2.2.0/inc/class-illdy-companion-import-data.php:79
+#: dist/svn/trunk/inc/class-illdy-companion-import-data.php:79
+#: inc/class-illdy-companion-import-data.php:79
+msgid "Front Page"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/inc/class-illdy-companion-import-data.php:80
+#: dist/svn/trunk/inc/class-illdy-companion-import-data.php:80
+#: inc/class-illdy-companion-import-data.php:80
+msgid "Blog"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/inc/class-illdy-companion-import-data.php:141
+#: dist/svn/trunk/inc/class-illdy-companion-import-data.php:141
+#: inc/class-illdy-companion-import-data.php:141
+msgid "Services"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/inc/class-illdy-companion-import-data.php:147
+#: dist/svn/trunk/inc/class-illdy-companion-import-data.php:147
+#: inc/class-illdy-companion-import-data.php:147
+msgid "Illdy"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/inc/class-illdy-companion-import-data.php:151
+#: dist/svn/trunk/inc/class-illdy-companion-import-data.php:151
+#: inc/class-illdy-companion-import-data.php:151
+msgid "contact@site.com"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/inc/class-illdy-companion-import-data.php:152
+#: dist/svn/trunk/inc/class-illdy-companion-import-data.php:152
+#: inc/class-illdy-companion-import-data.php:152
+msgid "(555) 555-5555"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/inc/class-illdy-companion-import-data.php:153
+#: dist/svn/trunk/inc/class-illdy-companion-import-data.php:153
+#: inc/class-illdy-companion-import-data.php:153
+msgid "Street 221B Baker Street, "
+msgstr ""
+
+#: dist/svn/tags/2.2.0/inc/class-illdy-companion-import-data.php:154
+#: dist/svn/trunk/inc/class-illdy-companion-import-data.php:154
+#: inc/class-illdy-companion-import-data.php:154
+msgid "London, UK"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/inc/class-illdy-companion-import-data.php:156
+#: dist/svn/trunk/inc/class-illdy-companion-import-data.php:156
+#: inc/class-illdy-companion-import-data.php:156
+msgid "&copy; Copyright 2016. All Rights Reserved."
+msgstr ""
+
+#: dist/svn/tags/2.2.0/inc/class-illdy-companion-import-data.php:165
+#: dist/svn/trunk/inc/class-illdy-companion-import-data.php:165
+#: inc/class-illdy-companion-import-data.php:165
+msgid "Team"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/inc/class-illdy-companion-import-data.php:168
+#: dist/svn/trunk/inc/class-illdy-companion-import-data.php:168
+#: inc/class-illdy-companion-import-data.php:168
+msgid "Testimonials"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/inc/class-illdy-companion-import-data.php:171
+#: dist/svn/trunk/inc/class-illdy-companion-import-data.php:171
+#: inc/class-illdy-companion-import-data.php:171
+msgid "About"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/inc/class-illdy-companion-import-data.php:174
+#: dist/svn/trunk/inc/class-illdy-companion-import-data.php:174
+#: inc/class-illdy-companion-import-data.php:174
+msgid "Contact us"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/inc/class-illdy-companion-import-data.php:176
+#: dist/svn/trunk/inc/class-illdy-companion-import-data.php:176
+#: inc/class-illdy-companion-import-data.php:176
+msgid "Address"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/inc/class-illdy-companion-import-data.php:177
+#: dist/svn/trunk/inc/class-illdy-companion-import-data.php:177
+#: inc/class-illdy-companion-import-data.php:177
+msgid "Customer Support"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/inc/class-illdy-companion-import-data.php:183
+#: dist/svn/trunk/inc/class-illdy-companion-import-data.php:183
+#: inc/class-illdy-companion-import-data.php:183
+msgid "Clean"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/inc/class-illdy-companion-import-data.php:184
+#: dist/svn/trunk/inc/class-illdy-companion-import-data.php:184
+#: inc/class-illdy-companion-import-data.php:184
+msgid "Slick"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/inc/class-illdy-companion-import-data.php:185
+#: dist/svn/trunk/inc/class-illdy-companion-import-data.php:185
+#: inc/class-illdy-companion-import-data.php:185
+msgid "Pixel Perfect"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/inc/class-illdy-companion-import-data.php:187
+#: dist/svn/trunk/inc/class-illdy-companion-import-data.php:187
+#: inc/class-illdy-companion-import-data.php:187
+msgid "Learn more"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/inc/class-illdy-companion-import-data.php:189
+#: dist/svn/trunk/inc/class-illdy-companion-import-data.php:189
+#: inc/class-illdy-companion-import-data.php:189
+msgid "Download"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/inc/class-illdy-companion-import-data.php:192
+#: dist/svn/trunk/inc/class-illdy-companion-import-data.php:192
+#: inc/class-illdy-companion-import-data.php:192
+msgid "Latest News"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/inc/class-illdy-companion-import-data.php:194
+#: dist/svn/trunk/inc/class-illdy-companion-import-data.php:194
+#: inc/class-illdy-companion-import-data.php:194
+msgid "See blog"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/inc/class-illdy-companion-import-data.php:197
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-counter.php:58
+#: dist/svn/trunk/inc/class-illdy-companion-import-data.php:197
+#: dist/svn/trunk/widgets/class-illdy-widget-counter.php:58
+#: inc/class-illdy-companion-import-data.php:197
+#: widgets/class-illdy-widget-counter.php:58
+msgid "Projects"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/inc/class-illdy-companion-importer-page.php:115
+#: dist/svn/tags/2.2.0/inc/class-illdy-companion-importer-page.php:141
+#: dist/svn/tags/2.2.0/inc/class-illdy-companion-importer-page.php:142
+#: dist/svn/tags/2.2.0/inc/class-illdy-companion-importer-page.php:189
+#: dist/svn/tags/2.2.0/inc/class-illdy-companion-importer-page.php:234
+#: dist/svn/tags/2.2.0/inc/class-illdy-companion-importer-page.php:290
+#: dist/svn/trunk/inc/class-illdy-companion-importer-page.php:115
+#: dist/svn/trunk/inc/class-illdy-companion-importer-page.php:141
+#: dist/svn/trunk/inc/class-illdy-companion-importer-page.php:142
+#: dist/svn/trunk/inc/class-illdy-companion-importer-page.php:189
+#: dist/svn/trunk/inc/class-illdy-companion-importer-page.php:234
+#: dist/svn/trunk/inc/class-illdy-companion-importer-page.php:290
+#: inc/class-illdy-companion-importer-page.php:115
+#: inc/class-illdy-companion-importer-page.php:141
+#: inc/class-illdy-companion-importer-page.php:142
+#: inc/class-illdy-companion-importer-page.php:189
+#: inc/class-illdy-companion-importer-page.php:234
+#: inc/class-illdy-companion-importer-page.php:290
+msgid "Import Demo Content"
+msgstr ""
+
+#. translators: shown in a browser confirm() dialog before the import runs.
+#: dist/svn/tags/2.2.0/inc/class-illdy-companion-importer-page.php:187
+#: dist/svn/trunk/inc/class-illdy-companion-importer-page.php:187
+#: inc/class-illdy-companion-importer-page.php:187
+msgid ""
+"Importing will overwrite your current Customizer settings and front page widgets.\n"
+"\n"
+"This cannot be undone. Continue?"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/inc/class-illdy-companion-importer-page.php:188
+#: dist/svn/trunk/inc/class-illdy-companion-importer-page.php:188
+#: inc/class-illdy-companion-importer-page.php:188
+msgid "Importing…"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/inc/class-illdy-companion-importer-page.php:190
+#: dist/svn/tags/2.2.0/inc/class-illdy-companion-importer-page.php:332
+#: dist/svn/trunk/inc/class-illdy-companion-importer-page.php:190
+#: dist/svn/trunk/inc/class-illdy-companion-importer-page.php:332
+#: inc/class-illdy-companion-importer-page.php:190
+#: inc/class-illdy-companion-importer-page.php:332
+msgid "Select at least one item to import."
+msgstr ""
+
+#: dist/svn/tags/2.2.0/inc/class-illdy-companion-importer-page.php:191
+#: dist/svn/tags/2.2.0/inc/class-illdy-companion-importer-page.php:340
+#: dist/svn/trunk/inc/class-illdy-companion-importer-page.php:191
+#: dist/svn/trunk/inc/class-illdy-companion-importer-page.php:340
+#: inc/class-illdy-companion-importer-page.php:191
+#: inc/class-illdy-companion-importer-page.php:340
+msgid "Demo content imported."
+msgstr ""
+
+#: dist/svn/tags/2.2.0/inc/class-illdy-companion-importer-page.php:192
+#: dist/svn/tags/2.2.0/inc/class-illdy-companion-importer-page.php:347
+#: dist/svn/trunk/inc/class-illdy-companion-importer-page.php:192
+#: dist/svn/trunk/inc/class-illdy-companion-importer-page.php:347
+#: inc/class-illdy-companion-importer-page.php:192
+#: inc/class-illdy-companion-importer-page.php:347
+msgid "The import did not complete. Nothing further was changed."
+msgstr ""
+
+#: dist/svn/tags/2.2.0/inc/class-illdy-companion-importer-page.php:208
+#: dist/svn/trunk/inc/class-illdy-companion-importer-page.php:208
+#: inc/class-illdy-companion-importer-page.php:208
+msgid "Set the front page to a static page"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/inc/class-illdy-companion-importer-page.php:209
+#: dist/svn/trunk/inc/class-illdy-companion-importer-page.php:209
+#: inc/class-illdy-companion-importer-page.php:209
+msgid "Import Customizer settings"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/inc/class-illdy-companion-importer-page.php:210
+#: dist/svn/trunk/inc/class-illdy-companion-importer-page.php:210
+#: inc/class-illdy-companion-importer-page.php:210
+msgid "Import front page widgets"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/inc/class-illdy-companion-importer-page.php:230
+#: dist/svn/tags/2.2.0/inc/class-illdy-companion-importer-page.php:312
+#: dist/svn/trunk/inc/class-illdy-companion-importer-page.php:230
+#: dist/svn/trunk/inc/class-illdy-companion-importer-page.php:312
+#: inc/class-illdy-companion-importer-page.php:230
+#: inc/class-illdy-companion-importer-page.php:312
+msgid "You do not have permission to import demo content."
+msgstr ""
+
+#: dist/svn/tags/2.2.0/inc/class-illdy-companion-importer-page.php:248
+#: dist/svn/trunk/inc/class-illdy-companion-importer-page.php:248
+#: inc/class-illdy-companion-importer-page.php:248
+msgid "Your account cannot import demo content."
+msgstr ""
+
+#: dist/svn/tags/2.2.0/inc/class-illdy-companion-importer-page.php:254
+#: dist/svn/trunk/inc/class-illdy-companion-importer-page.php:254
+#: inc/class-illdy-companion-importer-page.php:254
+msgid "Set the front page up like the demo"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/inc/class-illdy-companion-importer-page.php:256
+#: dist/svn/trunk/inc/class-illdy-companion-importer-page.php:256
+#: inc/class-illdy-companion-importer-page.php:256
+msgid "This creates the Front Page and Blog pages, points Settings → Reading at them, fills in the Customizer settings, and adds the front page widgets. It is optional: everything it does can be done by hand."
+msgstr ""
+
+#: dist/svn/tags/2.2.0/inc/class-illdy-companion-importer-page.php:260
+#: dist/svn/trunk/inc/class-illdy-companion-importer-page.php:260
+#: inc/class-illdy-companion-importer-page.php:260
+msgid "Demo content has already been imported on this site. Running it again replaces your current settings with the demo ones."
+msgstr ""
+
+#: dist/svn/tags/2.2.0/inc/class-illdy-companion-importer-page.php:266
+#: dist/svn/trunk/inc/class-illdy-companion-importer-page.php:266
+#: inc/class-illdy-companion-importer-page.php:266
+msgid "This overwrites existing settings."
+msgstr ""
+
+#: dist/svn/tags/2.2.0/inc/class-illdy-companion-importer-page.php:267
+#: dist/svn/trunk/inc/class-illdy-companion-importer-page.php:267
+#: inc/class-illdy-companion-importer-page.php:267
+msgid "Customizer options and front page widgets are replaced by the demo values. Your posts, pages and media are not touched."
+msgstr ""
+
+#: dist/svn/tags/2.2.0/inc/class-illdy-companion-importer-page.php:272
+#: dist/svn/tags/2.2.0/inc/class-illdy-companion-importer-page.php:275
+#: dist/svn/trunk/inc/class-illdy-companion-importer-page.php:272
+#: dist/svn/trunk/inc/class-illdy-companion-importer-page.php:275
+#: inc/class-illdy-companion-importer-page.php:272
+#: inc/class-illdy-companion-importer-page.php:275
+msgid "What to import"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/inc/class-illdy-companion-importer-page.php:300
+#: dist/svn/trunk/inc/class-illdy-companion-importer-page.php:300
+#: inc/class-illdy-companion-importer-page.php:300
+msgid "Open the Customizer"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/inc/epsilon-dashboard/class-epsilon-dashboard.php:81
+#: dist/svn/trunk/inc/epsilon-dashboard/class-epsilon-dashboard.php:81
+#: inc/epsilon-dashboard/class-epsilon-dashboard.php:81
+msgid "WordPress Guides/Tutorials"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-counter.php:14
+#: dist/svn/trunk/widgets/class-illdy-widget-counter.php:14
+#: widgets/class-illdy-widget-counter.php:14
+msgid "[Illdy] - Counter"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-counter.php:15
+#: dist/svn/trunk/widgets/class-illdy-widget-counter.php:15
+#: widgets/class-illdy-widget-counter.php:15
+msgid "Add this widget in \"Front page - Counter Sidebar\"."
+msgstr ""
+
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-counter.php:68
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-person.php:171
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-project.php:124
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-recent-posts.php:107
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-service.php:139
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-skill.php:138
+#: dist/svn/trunk/widgets/class-illdy-widget-counter.php:68
+#: dist/svn/trunk/widgets/class-illdy-widget-person.php:171
+#: dist/svn/trunk/widgets/class-illdy-widget-project.php:124
+#: dist/svn/trunk/widgets/class-illdy-widget-recent-posts.php:107
+#: dist/svn/trunk/widgets/class-illdy-widget-service.php:139
+#: dist/svn/trunk/widgets/class-illdy-widget-skill.php:138
+#: widgets/class-illdy-widget-counter.php:68
+#: widgets/class-illdy-widget-person.php:171
+#: widgets/class-illdy-widget-project.php:124
+#: widgets/class-illdy-widget-recent-posts.php:107
+#: widgets/class-illdy-widget-service.php:139
+#: widgets/class-illdy-widget-skill.php:138
+msgid "Title:"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-counter.php:73
+#: dist/svn/trunk/widgets/class-illdy-widget-counter.php:73
+#: widgets/class-illdy-widget-counter.php:73
+msgid "Data from:"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-counter.php:74
+#: dist/svn/trunk/widgets/class-illdy-widget-counter.php:74
+#: widgets/class-illdy-widget-counter.php:74
+msgid "Counter should start at"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-counter.php:79
+#: dist/svn/trunk/widgets/class-illdy-widget-counter.php:79
+#: widgets/class-illdy-widget-counter.php:79
+msgid "Data to:"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-counter.php:80
+#: dist/svn/trunk/widgets/class-illdy-widget-counter.php:80
+#: widgets/class-illdy-widget-counter.php:80
+msgid "Counter should end at"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-counter.php:85
+#: dist/svn/trunk/widgets/class-illdy-widget-counter.php:85
+#: widgets/class-illdy-widget-counter.php:85
+msgid "Data speed:"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-counter.php:86
+#: dist/svn/trunk/widgets/class-illdy-widget-counter.php:86
+#: widgets/class-illdy-widget-counter.php:86
+msgid "How long it should take to count between the target numbers."
+msgstr ""
+
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-counter.php:91
+#: dist/svn/trunk/widgets/class-illdy-widget-counter.php:91
+#: widgets/class-illdy-widget-counter.php:91
+msgid "Data refresh interval:"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-counter.php:92
+#: dist/svn/trunk/widgets/class-illdy-widget-counter.php:92
+#: widgets/class-illdy-widget-counter.php:92
+msgid "How often the element should be updated."
+msgstr ""
+
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-parallax.php:15
+#: dist/svn/trunk/widgets/class-illdy-widget-parallax.php:15
+#: widgets/class-illdy-widget-parallax.php:15
+msgid "Illdy FrontPage Parallax Section"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-parallax.php:18
+#: dist/svn/trunk/widgets/class-illdy-widget-parallax.php:18
+#: widgets/class-illdy-widget-parallax.php:18
+msgid "[Illdy] Parralax Section For FrontPage"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-parallax.php:136
+#: dist/svn/trunk/widgets/class-illdy-widget-parallax.php:136
+#: widgets/class-illdy-widget-parallax.php:136
+msgid "Title "
+msgstr ""
+
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-parallax.php:144
+#: dist/svn/trunk/widgets/class-illdy-widget-parallax.php:144
+#: widgets/class-illdy-widget-parallax.php:144
+msgid "Image"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-parallax.php:152
+#: dist/svn/trunk/widgets/class-illdy-widget-parallax.php:152
+#: widgets/class-illdy-widget-parallax.php:152
+msgid "Choose Image"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-parallax.php:153
+#: dist/svn/trunk/widgets/class-illdy-widget-parallax.php:153
+#: widgets/class-illdy-widget-parallax.php:153
+msgid "Remove Image"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-parallax.php:157
+#: dist/svn/trunk/widgets/class-illdy-widget-parallax.php:157
+#: widgets/class-illdy-widget-parallax.php:157
+msgid "Content "
+msgstr ""
+
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-parallax.php:163
+#: dist/svn/trunk/widgets/class-illdy-widget-parallax.php:163
+#: widgets/class-illdy-widget-parallax.php:163
+msgid "Image Position "
+msgstr ""
+
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-parallax.php:165
+#: dist/svn/trunk/widgets/class-illdy-widget-parallax.php:165
+#: widgets/class-illdy-widget-parallax.php:165
+msgid "Left"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-parallax.php:166
+#: dist/svn/trunk/widgets/class-illdy-widget-parallax.php:166
+#: widgets/class-illdy-widget-parallax.php:166
+msgid "Right"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-parallax.php:167
+#: dist/svn/trunk/widgets/class-illdy-widget-parallax.php:167
+#: widgets/class-illdy-widget-parallax.php:167
+msgid "Top"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-parallax.php:168
+#: dist/svn/trunk/widgets/class-illdy-widget-parallax.php:168
+#: widgets/class-illdy-widget-parallax.php:168
+msgid "Bottom"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-parallax.php:169
+#: dist/svn/trunk/widgets/class-illdy-widget-parallax.php:169
+#: widgets/class-illdy-widget-parallax.php:169
+msgid "Background Full"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-parallax.php:170
+#: dist/svn/trunk/widgets/class-illdy-widget-parallax.php:170
+#: widgets/class-illdy-widget-parallax.php:170
+msgid "Background Small"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-parallax.php:175
+#: dist/svn/trunk/widgets/class-illdy-widget-parallax.php:175
+#: widgets/class-illdy-widget-parallax.php:175
+msgid "Button 1 Text "
+msgstr ""
+
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-parallax.php:181
+#: dist/svn/trunk/widgets/class-illdy-widget-parallax.php:181
+#: widgets/class-illdy-widget-parallax.php:181
+msgid "Button 1 Link "
+msgstr ""
+
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-parallax.php:187
+#: dist/svn/trunk/widgets/class-illdy-widget-parallax.php:187
+#: widgets/class-illdy-widget-parallax.php:187
+msgid "Button 2 Text "
+msgstr ""
+
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-parallax.php:193
+#: dist/svn/trunk/widgets/class-illdy-widget-parallax.php:193
+#: widgets/class-illdy-widget-parallax.php:193
+msgid "Button 2 Link "
+msgstr ""
+
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-parallax.php:200
+#: dist/svn/trunk/widgets/class-illdy-widget-parallax.php:200
+#: widgets/class-illdy-widget-parallax.php:200
+msgid "Border bottom"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-person.php:14
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-person.php:156
+#: dist/svn/trunk/widgets/class-illdy-widget-person.php:14
+#: dist/svn/trunk/widgets/class-illdy-widget-person.php:156
+#: widgets/class-illdy-widget-person.php:14
+#: widgets/class-illdy-widget-person.php:156
+msgid "[Illdy] - Person"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-person.php:15
+#: dist/svn/trunk/widgets/class-illdy-widget-person.php:15
+#: widgets/class-illdy-widget-person.php:15
+msgid "Add this widget in \"Front page - Team Sidebar\"."
+msgstr ""
+
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-person.php:107
+#: dist/svn/trunk/widgets/class-illdy-widget-person.php:107
+#: widgets/class-illdy-widget-person.php:107
+msgid "Facebook"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-person.php:108
+#: dist/svn/trunk/widgets/class-illdy-widget-person.php:108
+#: widgets/class-illdy-widget-person.php:108
+msgid "Twitter"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-person.php:109
+#: dist/svn/trunk/widgets/class-illdy-widget-person.php:109
+#: widgets/class-illdy-widget-person.php:109
+msgid "LinkedIn"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-person.php:110
+#: dist/svn/trunk/widgets/class-illdy-widget-person.php:110
+#: widgets/class-illdy-widget-person.php:110
+msgid "GitHub"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-person.php:176
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-project.php:129
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-testimonial.php:102
+#: dist/svn/trunk/widgets/class-illdy-widget-person.php:176
+#: dist/svn/trunk/widgets/class-illdy-widget-project.php:129
+#: dist/svn/trunk/widgets/class-illdy-widget-testimonial.php:102
+#: widgets/class-illdy-widget-person.php:176
+#: widgets/class-illdy-widget-project.php:129
+#: widgets/class-illdy-widget-testimonial.php:102
+msgid "Image:"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-person.php:178
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-project.php:131
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-testimonial.php:104
+#: dist/svn/trunk/widgets/class-illdy-widget-person.php:178
+#: dist/svn/trunk/widgets/class-illdy-widget-project.php:131
+#: dist/svn/trunk/widgets/class-illdy-widget-testimonial.php:104
+#: widgets/class-illdy-widget-person.php:178
+#: widgets/class-illdy-widget-project.php:131
+#: widgets/class-illdy-widget-testimonial.php:104
+msgid "Upload Image"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-person.php:182
+#: dist/svn/trunk/widgets/class-illdy-widget-person.php:182
+#: widgets/class-illdy-widget-person.php:182
+msgid "Position:"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-person.php:187
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-service.php:155
+#: dist/svn/trunk/widgets/class-illdy-widget-person.php:187
+#: dist/svn/trunk/widgets/class-illdy-widget-service.php:155
+#: widgets/class-illdy-widget-person.php:187
+#: widgets/class-illdy-widget-service.php:155
+msgid "Entry:"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-person.php:192
+#: dist/svn/trunk/widgets/class-illdy-widget-person.php:192
+#: widgets/class-illdy-widget-person.php:192
+msgid "Facebook URL:"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-person.php:197
+#: dist/svn/trunk/widgets/class-illdy-widget-person.php:197
+#: widgets/class-illdy-widget-person.php:197
+msgid "Twitter URL:"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-person.php:202
+#: dist/svn/trunk/widgets/class-illdy-widget-person.php:202
+#: widgets/class-illdy-widget-person.php:202
+msgid "LinkedIn URL:"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-person.php:207
+#: dist/svn/trunk/widgets/class-illdy-widget-person.php:207
+#: widgets/class-illdy-widget-person.php:207
+msgid "GitHub URL:"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-person.php:212
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-service.php:160
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-skill.php:158
+#: dist/svn/trunk/widgets/class-illdy-widget-person.php:212
+#: dist/svn/trunk/widgets/class-illdy-widget-service.php:160
+#: dist/svn/trunk/widgets/class-illdy-widget-skill.php:158
+#: widgets/class-illdy-widget-person.php:212
+#: widgets/class-illdy-widget-service.php:160
+#: widgets/class-illdy-widget-skill.php:158
+msgid "Color:"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-project.php:14
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-project.php:115
+#: dist/svn/trunk/widgets/class-illdy-widget-project.php:14
+#: dist/svn/trunk/widgets/class-illdy-widget-project.php:115
+#: widgets/class-illdy-widget-project.php:14
+#: widgets/class-illdy-widget-project.php:115
+msgid "[Illdy] - Project"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-project.php:15
+#: dist/svn/trunk/widgets/class-illdy-widget-project.php:15
+#: widgets/class-illdy-widget-project.php:15
+msgid "Add this widget in \"Front page - Projects Sidebar\"."
+msgstr ""
+
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-project.php:135
+#: dist/svn/trunk/widgets/class-illdy-widget-project.php:135
+#: widgets/class-illdy-widget-project.php:135
+msgid "Video: (YouTube or Vimeo only)"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-project.php:141
+#: dist/svn/trunk/widgets/class-illdy-widget-project.php:141
+#: widgets/class-illdy-widget-project.php:141
+msgid "URL:"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-recent-posts.php:14
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-recent-posts.php:90
+#: dist/svn/trunk/widgets/class-illdy-widget-recent-posts.php:14
+#: dist/svn/trunk/widgets/class-illdy-widget-recent-posts.php:90
+#: widgets/class-illdy-widget-recent-posts.php:14
+#: widgets/class-illdy-widget-recent-posts.php:90
+msgid "[Illdy] - Recent Posts"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-recent-posts.php:15
+#: dist/svn/trunk/widgets/class-illdy-widget-recent-posts.php:15
+#: widgets/class-illdy-widget-recent-posts.php:15
+msgid "Thiw widget will display the latest posts with thumbnail image on the left side."
+msgstr ""
+
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-recent-posts.php:65
+#: dist/svn/trunk/widgets/class-illdy-widget-recent-posts.php:65
+#: widgets/class-illdy-widget-recent-posts.php:65
+msgid "More..."
+msgstr ""
+
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-recent-posts.php:72
+#: dist/svn/trunk/widgets/class-illdy-widget-recent-posts.php:72
+#: widgets/class-illdy-widget-recent-posts.php:72
+msgid "No posts found."
+msgstr ""
+
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-recent-posts.php:99
+#: dist/svn/trunk/widgets/class-illdy-widget-recent-posts.php:99
+#: widgets/class-illdy-widget-recent-posts.php:99
+msgid "Display title?"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-recent-posts.php:112
+#: dist/svn/trunk/widgets/class-illdy-widget-recent-posts.php:112
+#: widgets/class-illdy-widget-recent-posts.php:112
+msgid "Number of posts:"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-service.php:14
+#: dist/svn/trunk/widgets/class-illdy-widget-service.php:14
+#: widgets/class-illdy-widget-service.php:14
+msgid "[Illdy] - Service"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-service.php:15
+#: dist/svn/trunk/widgets/class-illdy-widget-service.php:15
+#: widgets/class-illdy-widget-service.php:15
+msgid "Add this widget in \"Front page - Services Sidebar\"."
+msgstr ""
+
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-service.php:128
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-skill.php:14
+#: dist/svn/trunk/widgets/class-illdy-widget-service.php:128
+#: dist/svn/trunk/widgets/class-illdy-widget-skill.php:14
+#: widgets/class-illdy-widget-service.php:128
+#: widgets/class-illdy-widget-skill.php:14
+msgid "[Illdy] - Skill"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-service.php:144
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-skill.php:148
+#: dist/svn/trunk/widgets/class-illdy-widget-service.php:144
+#: dist/svn/trunk/widgets/class-illdy-widget-skill.php:148
+#: widgets/class-illdy-widget-service.php:144
+#: widgets/class-illdy-widget-skill.php:148
+msgid "Icon:"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-service.php:146
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-skill.php:150
+#: dist/svn/trunk/widgets/class-illdy-widget-service.php:146
+#: dist/svn/trunk/widgets/class-illdy-widget-skill.php:150
+#: widgets/class-illdy-widget-service.php:146
+#: widgets/class-illdy-widget-skill.php:150
+msgid "All Font Awesome Icons"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-skill.php:15
+#: dist/svn/trunk/widgets/class-illdy-widget-skill.php:15
+#: widgets/class-illdy-widget-skill.php:15
+msgid "Add this widget in \"Front page - About Sidebar\"."
+msgstr ""
+
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-skill.php:143
+#: dist/svn/trunk/widgets/class-illdy-widget-skill.php:143
+#: widgets/class-illdy-widget-skill.php:143
+msgid "Percentage:"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-testimonial.php:14
+#: dist/svn/trunk/widgets/class-illdy-widget-testimonial.php:14
+#: widgets/class-illdy-widget-testimonial.php:14
+msgid "[Illdy] - Testimonial"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-testimonial.php:15
+#: dist/svn/trunk/widgets/class-illdy-widget-testimonial.php:15
+#: widgets/class-illdy-widget-testimonial.php:15
+msgid "Add this widget in \"Front page - Testimonial Sidebar\"."
+msgstr ""
+
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-testimonial.php:97
+#: dist/svn/trunk/widgets/class-illdy-widget-testimonial.php:97
+#: widgets/class-illdy-widget-testimonial.php:97
+msgid "Name:"
+msgstr ""
+
+#: dist/svn/tags/2.2.0/widgets/class-illdy-widget-testimonial.php:108
+#: dist/svn/trunk/widgets/class-illdy-widget-testimonial.php:108
+#: widgets/class-illdy-widget-testimonial.php:108
+msgid "Testimonial:"
+msgstr ""

@@ -1,4 +1,8 @@
 <?php
+if ( ! defined( 'WPINC' ) ) {
+	die;
+}
+
 
 class Illdy_Widget_Skill extends WP_Widget {
 
@@ -84,7 +88,7 @@ class Illdy_Widget_Skill extends WP_Widget {
 	* @param array $instance Saved values from database.
 	*/
 	public function widget( $args, $instance ) {
-		echo $args['before_widget'];
+		echo $args['before_widget']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- $args comes from register_sidebar() in the theme, not from user input.
 
 		$defaults = array(
 			'title'      => '',
@@ -105,9 +109,9 @@ class Illdy_Widget_Skill extends WP_Widget {
 		$output     .= '</div><!--/.skill-bottom-->';
 		$output     .= '</div><!--/.skill-->';
 
-		echo $output;
+		echo $output; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- $output is assembled from esc_url(), esc_attr() and esc_html() above.
 
-		echo $args['after_widget'];
+		echo $args['after_widget']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- $args comes from register_sidebar() in the theme, not from user input.
 	}
 
 	/**
@@ -131,19 +135,19 @@ class Illdy_Widget_Skill extends WP_Widget {
 		?>
 
 		<p>
-			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'illdy-companion' ); ?></label>
-			<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $instance['title'] ); ?>">
+			<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title:', 'illdy-companion' ); ?></label>
+			<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $instance['title'] ); ?>">
 		</p>
 
 		<p>
-			<label for="<?php echo $this->get_field_id( 'percentage' ); ?>"><?php _e( 'Percentage:', 'illdy-companion' ); ?></label>
-			<input class="widefat" id="<?php echo $this->get_field_id( 'percentage' ); ?>" name="<?php echo $this->get_field_name( 'percentage' ); ?>" type="number" value="<?php echo esc_attr( $instance['percentage'] ); ?>">
+			<label for="<?php echo esc_attr( $this->get_field_id( 'percentage' ) ); ?>"><?php esc_html_e( 'Percentage:', 'illdy-companion' ); ?></label>
+			<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'percentage' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'percentage' ) ); ?>" type="number" value="<?php echo esc_attr( $instance['percentage'] ); ?>">
 		</p>
 
 		<p>
-			<label for="<?php echo $this->get_field_id( 'icon' ); ?>"><?php _e( 'Icon:', 'illdy-companion' ); ?></label>
-			<select class="widefat fontawesome-picker" id="<?php echo $this->get_field_id( 'icon' ); ?>" name="<?php echo $this->get_field_name( 'icon' ); ?>">
-				<option value="all-font-awesome-icons"><?php _e( 'All Font Awesome Icons', 'illdy-companion' ); ?></option>
+			<label for="<?php echo esc_attr( $this->get_field_id( 'icon' ) ); ?>"><?php esc_html_e( 'Icon:', 'illdy-companion' ); ?></label>
+			<select class="widefat fontawesome-picker" id="<?php echo esc_attr( $this->get_field_id( 'icon' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'icon' ) ); ?>">
+				<option value="all-font-awesome-icons"><?php esc_html_e( 'All Font Awesome Icons', 'illdy-companion' ); ?></option>
 				<?php foreach ( $get_fontawesome_icons as $key => $get_fontawesome_icon ) : ?>
 					<option value="fa <?php echo esc_attr( $key ); ?>" <?php selected( $instance['icon'], 'fa ' . $key ); ?>>fa <?php echo esc_html( $get_fontawesome_icon ); ?></option>
 				<?php endforeach; ?>
@@ -151,8 +155,8 @@ class Illdy_Widget_Skill extends WP_Widget {
 		</p>
 
 		<p>
-			<label for="<?php echo $this->get_field_id( 'color' ); ?>"><?php _e( 'Color:', 'illdy-companion' ); ?></label><br>
-			<input type="text" name="<?php echo $this->get_field_name( 'color' ); ?>" class="color-picker" id="<?php echo $this->get_field_id( 'color' ); ?>" value="<?php echo esc_attr( $instance['color'] ); ?>" data-default-color="#000000" />
+			<label for="<?php echo esc_attr( $this->get_field_id( 'color' ) ); ?>"><?php esc_html_e( 'Color:', 'illdy-companion' ); ?></label><br>
+			<input type="text" name="<?php echo esc_attr( $this->get_field_name( 'color' ) ); ?>" class="color-picker" id="<?php echo esc_attr( $this->get_field_id( 'color' ) ); ?>" value="<?php echo esc_attr( $instance['color'] ); ?>" data-default-color="#000000" />
 		</p>
 	<?php
 	}

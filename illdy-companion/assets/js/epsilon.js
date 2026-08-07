@@ -32,7 +32,8 @@ jQuery(function( $ ) {
 			var selector = $( '.illdy-media-control' ).find( mediaControl.selector );
             var data = {
                 action: 'illdy_get_attachment_media',
-                attachment_id: id
+                attachment_id: id,
+                nonce: ( 'undefined' !== typeof illdyCompanionMedia ) ? illdyCompanionMedia.nonce : ''
             };
 
 			if ( ! selector.length ) {

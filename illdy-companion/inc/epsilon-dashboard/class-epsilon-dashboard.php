@@ -78,7 +78,21 @@ if ( ! class_exists( 'Epsilon_Dashboard' ) ) {
 		 */
 		public function setup_vars( $args ) {
 			if ( ! isset( $args['widget_title'] ) ) {
-				$args['widget_title'] = apply_filters( 'epsilon_dashboard_widget_name', esc_html__( 'WordPress Guides/Tutorials', 'illdy-companion' ) );
+				$title = esc_html__( 'WordPress Guides/Tutorials', 'illdy-companion' );
+
+				/**
+				 * Filters the title of the dashboard feed widget.
+				 *
+				 * @param string $title Widget title.
+				 */
+				$title = apply_filters( 'illdy_companion_dashboard_widget_name', $title );
+
+				/*
+				 * The original name predates this plugin owning the code and is not
+				 * prefixed with the plugin's own slug. It still runs so anything already
+				 * filtering it keeps working; new code should use the filter above.
+				 */
+				$args['widget_title'] = apply_filters( 'epsilon_dashboard_widget_name', $title ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound -- Retained for backwards compatibility.
 			}
 			$this->dashboard_name = $args['widget_title'];
 			$this->feeds          = (array) $args['feed_url'];
@@ -109,8 +123,8 @@ if ( ! class_exists( 'Epsilon_Dashboard' ) ) {
 			$feed->enable_order_by_date( true );
 			$feed->set_cache_class( 'WP_Feed_Cache' );
 			$feed->set_file_class( 'WP_SimplePie_File' );
-			$feed->set_cache_duration( apply_filters( 'wp_feed_cache_transient_lifetime', 7200, $this->feeds ) );
-			do_action_ref_array( 'wp_feed_options', array( $feed, $this->feeds ) );
+			$feed->set_cache_duration( apply_filters( 'wp_feed_cache_transient_lifetime', 7200, $this->feeds ) ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound -- WordPress core filter.
+			do_action_ref_array( 'wp_feed_options', array( $feed, $this->feeds ) ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound -- WordPress core action.
 			$feed->strip_comments( true );
 			$feed->strip_htmltags(
 				array(
@@ -156,7 +170,7 @@ if ( ! class_exists( 'Epsilon_Dashboard' ) ) {
 		 */
 		function render_dashboard_widget() {
 			?>
-			<style type="text/css">
+			<style>
 
 				.epsilon-dw-feed-item {
 					display: flex;
@@ -204,12 +218,20 @@ if ( ! class_exists( 'Epsilon_Dashboard' ) ) {
 							'utm_medium'   => 'dashboard_widget',
 						);
 						?>
+						<?php
+						// Everything below originates in a remote RSS feed, so it is
+						// escaped on output rather than trusted. wp_date() also respects
+						// the site timezone, where date() used the server's.
+						$item_timestamp = ! empty( $item['date'] ) ? (int) $item['date'] : 0;
+						?>
 						<li class="epsilon-dw-feed-item">
-							<span class="epsilon-dw-date-container">
-								<span class="epsilon-dw-day-container"><?php echo date( 'd', $item['date'] ); ?></span> 
-								<span class="epsilon-dw-month-container"><?php echo substr( date( 'M', $item['date'] ), 0, 3 ); ?></span>
-							</span>
-							<a href="<?php echo add_query_arg( $query_args, $item['link'] ); ?>" target="_blank"><?php echo $item['title']; ?></a>
+							<?php if ( $item_timestamp ) : ?>
+								<span class="epsilon-dw-date-container">
+									<span class="epsilon-dw-day-container"><?php echo esc_html( wp_date( 'd', $item_timestamp ) ); ?></span>
+									<span class="epsilon-dw-month-container"><?php echo esc_html( wp_date( 'M', $item_timestamp ) ); ?></span>
+								</span>
+							<?php endif; ?>
+							<a href="<?php echo esc_url( add_query_arg( $query_args, $item['link'] ) ); ?>" target="_blank" rel="noopener noreferrer"><?php echo esc_html( $item['title'] ); ?></a>
 							<div class="clear"></div>
 						</li>
 						<?php
